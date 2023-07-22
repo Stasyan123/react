@@ -32,11 +32,12 @@ const AlbumPhotos = ({ albumId }) => {
     };
 
     const handleClick = () => {
+        console.log("window clicked")
       setIsWindowCLicked(true);
 
       setTimeout(() => {
         setIsWindowCLicked(false);
-      }, 3000);
+      }, 1500);
     };
 
     window.addEventListener("click", handleClick);
@@ -54,7 +55,7 @@ const AlbumPhotos = ({ albumId }) => {
   return <div className="photos-container">
     <div className={isWindowCLicked ? "redBorders" : ""}>
         {albumPhotos && albumPhotos.filter(photo => photo.albumId === albumId).map((photo) => (
-            <img alt="Wait pls" className="thumb" src={photo.thumbnailUrl} />
+            <img key={photo.id} alt="Wait pls" className="thumb" src={photo.thumbnailUrl} />
         ))}
     </div>
   </div>;
