@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { LoadingContext } from "./LoadingContextProvider";
+
 const Posts = () => {
+  const {isLoading, error, setIsLoading, setError} = useContext(LoadingContext)
   const [posts, setPosts] = useState([]);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getPosts = async () => {
-      setIsLoading(true);
-      setError("");
+      setIsLoading(true)
+      setError("")
 
       fetch(process.env.REACT_APP_API_URL + "posts")
         .then((response) => {
@@ -31,6 +32,11 @@ const Posts = () => {
     };
 
     getPosts();
+
+    return () => {
+      setIsLoading(false)
+      setError(null);
+    }
   }, []);
 
   if (isLoading) {
