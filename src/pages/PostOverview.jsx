@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { LoadingContext } from "../components/LoadingContextProvider";
+import PostElement from "../components/PostElement";
+
+
 
 const PostOverview = () => {
   const {isLoading, error, setIsLoading, setError} = useContext(LoadingContext)
@@ -47,14 +50,7 @@ const PostOverview = () => {
 
   return (
     <div>
-      {post && post.id && (
-        <div>
-          <h5>
-            <b>{post.title}</b>
-          </h5>
-          <p>{post.body}</p>
-        </div>
-      )}
+      <PostElement post={post} />
     </div>
   );
 };

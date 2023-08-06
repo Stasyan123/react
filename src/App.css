@@ -16,3 +16,11 @@
   margin-left: 15px;
   margin-right: 15px;
 }
+.light-element {
+  background-color: white;
+  color: black;
+}
+.dark-element {
+  background-color: black;
+  color: white;
+}
