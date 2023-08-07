@@ -51,6 +51,11 @@ const Form = ({ currentTodo, setTodos, setCurrentTodo }) => {
     hideModal()
   };
 
+  const closeModal = () => {
+    setCurrentTodo(null)
+    hideModal()
+  }
+
   return (
     <form>
       <div className="row">
@@ -64,7 +69,7 @@ const Form = ({ currentTodo, setTodos, setCurrentTodo }) => {
         <Button onClick={updateTodos} type="submit">
           Submit
         </Button>
-        <Button onClick={hideModal}>Back</Button>
+        <Button onClick={closeModal}>Back</Button>
       </div>
     </form>
   );
