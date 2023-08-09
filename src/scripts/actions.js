@@ -1,0 +1,1 @@
+export const counterActions = { increment: 'increment', decrement: 'decrement', customIncrement: 'customIncrement', reset: 'reset' }
