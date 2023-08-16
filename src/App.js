@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound";
 
 import "./App.css";
 import Counter from "./pages/Counter";
+import Posts from "./pages/Posts";
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       
       <Route path="/" element={<MainTemplate />}>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/posts/:userId" element={<Posts />}></Route>
+        <Route path="/users" element={<Users />}></Route>
         <Route path="/counter" element={<Counter />}></Route>
         <Route path="/about" element={<About />}></Route>
       </Route>
